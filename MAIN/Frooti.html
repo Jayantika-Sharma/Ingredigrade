@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frooti</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        }
+
+        ul {
+            padding-left: 18px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+
+        html,
+        body {
+            height: 100%;
+            font-family: 'Georgia', serif;
+            background-color: #7a8a75;
+        }
+
+        body {
+            padding: 10px;
+            border: 8px solid #7a8a75;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            background-color: #e8e4c8;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .menu-icon,
+        .profile-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #d4d4d4;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .menu-icon {
+            flex-direction: column;
+            gap: 6px;
+            padding: 15px;
+        }
+
+        .menu-line {
+            width: 100%;
+            height: 4px;
+            background-color: #000;
+            border-radius: 2px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        .product-card {
+            background-color: #5e6e5e;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-image {
+            background-color: #b89968;
+            border-radius: 10px;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+
+        .product-info {
+            color: white;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .product-name {
+            font-size: 2.5em;
+            font-weight: normal;
+            line-height: 1.1;
+            margin-bottom: 5px;
+        }
+
+        .company-name {
+            font-size: 2.5em;
+            color: #a8b8a8;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            font-size: 1.8em;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .grade-badge {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 70px;
+            height: 70px;
+            background-color: #e8e4c8;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .ingredients-card {
+            background-color: #a8b8a8;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .ingredients-header {
+            background-color: #c8d4c8;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow-y: auto;
+        }
+
+        .ingredients-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .ingredients-subtitle {
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .ingredient-box {
+            background-color: #c8d4c8;
+            border-radius: 10px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .ingredient-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .ingredient-label {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .alternative-box {
+            background-color: #c8d4c8;
+            border-radius: 10px;
+            padding: 15px;
+            min-height: 100px;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+                border: 4px solid #7a8a75;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .ingredients-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        a{text-decoration: none; color: black;}
+    </style>
+</head>
+
+<body>
+    <a href="./category.html">
+    <div class="header">
+        <div class="menu-icon">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+        <div class="profile-icon"></div>
+    </div>
+    <div class="container">
+
+
+        <div class="content">
+            <div class="product-card">
+                <img class="product-image" src="../Image/Beverage/frooti.png">
+                <div class="product-info">
+                    <div class="product-name">FROOTI</div>
+                    <div class="company-name">Parle Agro</div>
+                    <div class="location">Mumbai</div>
+                    <div class="grade-badge">G</div>
+                </div>
+            </div>
+
+            <div class="ingredients-card ">
+                <div class="ingredients-header">
+                    <div class="ingredients-title">INGREDIENTS</div>
+                    <div class="ingredients-subtitle">
+                        <ul>
+                            <li>Acidity Regulator[INS330,INS331]</li>
+                            <li>Anti-Oxidant[INS300]</li>
+                            <li>Synthetic Food color[INS110]</li>
+                            <li>Water</li>
+                            <li>Mango pulp (real mango fruit content ~19–20%)</li>
+                            <li>Sugar</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="ingredients-grid">
+                    <div class="ingredient-box">
+                        <div class="ingredient-title">Safe</div>
+                        <div class="ingredient-label">
+                            <ul>
+                                <li>Water</li>
+                                <li>Mango pulp(Real fruit content; provides flavour, small nutrients)</li>
+                                <li>Ascorbic Acid (INS 300 – Vitamin C)</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ingredient-box">
+                        <div class="ingredient-title">Mild</div>
+                        <div class="ingredient-label">
+                            <ul>
+                                <li>
+                                    <strong>Sugar</strong>
+                                    <ul>
+                                        <li>Increases obesity and diabetes risk if consumed often</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <strong>Citric Acid (INS 330)</strong>
+                                    <ul>
+
+                                        <li>May affect teeth or cause acidity if consumed in excess</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="ingredient-box">
+                        <div class="ingredient-title">Unsafe</div>
+                        <div class="ingredient-label">
+                            <ul>
+                                <li>
+                                    <strong>Artificial / Nature-Identical Flavouring</strong>
+                                    <ul>
+                                        <li>No nutritional value</li>
+                                     </ul>
+                                </li>
+
+                                <li>
+                                    <strong>Synthetic Food Colour (e.g., INS 110)</strong>
+                                    <ul>
+                                        <li>Linked to behavioural concerns in children</li>
+                                                                            </ul>
+                                </li>
+
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alternative-box">
+                    <div class="ingredient-title">Alternative</div>
+                    <div class="ingredient-label">
+                        <ul>
+                            <li><strong>Fresh Mango Juice</strong> – Homemade, no additives</li>
+                            <li><strong>Whole Mango</strong> – Natural fibre and nutrients</li>
+                            <li><strong>Mango Smoothie</strong> – No added sugar</li>
+                            <li><strong>Coconut Water</strong> – Natural hydration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
