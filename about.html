@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Mini Project</title>
+    <link rel="icon" href="../Image/Web-resource/logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f2f4f3;
+            color: #333;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #cfd8dc;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #37474f;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .role {
+            font-size: 0.95rem;
+            color: #00796b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        #lg {
+            height: 250px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <img id="lg" src="../Image/Web-resource/logo.png"
+            style="align:center; display:block; margin-left:auto; margin-right:auto;">
+        <div class="title">
+            <h1>About Us</h1>
+            <p>IngrediGrade | Computer Science & Engineering</p>
+        </div>
+
+        <div class="team">
+
+            <div class="card">
+                <div class="avatar">J</div>
+                <h2>Jayantika Sharma</h2>
+                <div class="role">Frontend Developer</div>
+                <p>
+                    Responsible for implementing HTML and CSS for the project.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="avatar">K</div>
+                <h2>Kaivalya Krishna</h2>
+                <div class="role">Research</div>
+                <p>
+                    Studied existing applications and UI design principles to understand best practices.
+                    Provided design and implementation ideas to improve usability and presentation.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="avatar">I</div>
+                <h2>Ira Mal</h2>
+                <div class="role">Frontend UI Designer</div>
+                <p>
+                    Designed the overall look and layout of the application by selecting colors, fonts, and page
+                    structure.
+                    Focused on creating a clean, user-friendly, and consistent interface.
+                </p>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

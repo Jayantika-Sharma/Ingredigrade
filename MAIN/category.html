@@ -4,246 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpage from Image</title>
-    <style>
-        :root {
-            --outer-border-color: #799881;
-            --main-bg: #799881;
-            /* Darker green-gray for the frame */
-            --panel-bg: #b5ccb0;
-            /* Lighter green for panels */
-            --panel-border: #000000;
-            --card-bg: #ffffed;
-            /* Light yellow/cream */
-            --search-bar-bg: #e5e7eb;
-            --search-icon-bg: #d1d5db;
-            --button-gray-bg: #8a8a8a;
-            --button-gray-text: #e0e0e0;
-            --logo-bg: #d1d5db;
-            --serif-font: 'Times New Roman', Times, serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html,
-        body {
-            height: 100%;
-            font-family: var(--serif-font);
-            background-color: var(--main-bg);
-            color: var(--panel-border);
-        }
-
-        body {
-            padding: 10px;
-            border: 8px solid var(--outer-border-color);
-        }
-
-        .container {
-            display: flex;
-            gap: 10px;
-            height: 100%;
-            width: 100%;
-        }
-
-        /* --- Sidebar --- */
-        .sidebar {
-            flex: 0 0 280px;
-            background-color: var(--panel-bg);
-            border: 2px solid var(--panel-border);
-            border-radius: 15px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .sidebar-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-
-
-        .search-bar {
-            display: flex;
-            align-items: center;
-            background-color: var(--search-bar-bg);
-            border-radius: 25px;
-            padding: 5px;
-            height: 45px;
-        }
-
-        .search-icon {
-            width: 35px;
-            height: 35px;
-            background-color: var(--search-icon-bg);
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .categories-section {
-            border-top: 2px solid var(--panel-border);
-            border-bottom: 2px solid var(--panel-border);
-            padding: 20px 0;
-            position: relative;
-        }
-
-        .categories-section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .categories-list {
-            list-style: none;
-            padding-left: 5px;
-        }
-
-        .categories-list li {
-            font-size: 1rem;
-            line-height: 1.6;
-            font-family: Arial, sans-serif;
-            /* This specific text looks more sans-serif */
-        }
-
-
-        .main-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            flex-grow: 1;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: var(--panel-border);
-            border: 2px solid var(--panel-border);
-            background-color: var(--panel-bg);
-            border-radius: 25px;
-            height: 60px;
-            font-size: 1.4rem;
-            font-weight: 500;
-            transition: background-color 0.2s, transform 0.2s;
-        }
-
-        .nav-link:hover {
-            background-color: #a8c0a3;
-            transform: scale(1.02);
-        }
-
-        /* --- Main Content --- */
-        .main-content {
-            flex-grow: 1;
-            background-color: var(--panel-bg);
-            border: 2px solid var(--panel-border);
-            border-radius: 15px;
-            padding: 20px;
-        }
-
-        .content-card {
-            display: flex;
-            align-items: center;
-            background-color: var(--card-bg);
-            border: 2px solid var(--panel-border);
-            border-radius: 15px;
-            padding: 15px;
-            gap: 20px;
-            margin: 10px;
-        }
-
-        .Bev {
-            background-color: #FFCDB2
-        }
-
-        .Fd {
-            background-color: #FFB4A2
-        }
-
-        .others {
-            background-color: #E5989B
-        }
-
-        .card-image-placeholder {
-            width: 70px;
-            height: 70px;
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            flex-shrink: 0;
-            border-radius:15px;
-        }
-
-        .card-details {
-            flex-grow: 1;
-        }
-
-        .card-details p {
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-        a{text-decoration: none;
-        color: black;}
-        .card-logo {
-            width: 60px;
-            height: 60px;
-            background-color: var(--logo-bg);
-            border: 2px solid var(--panel-border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--panel-border);
-            flex-shrink: 0;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-        }
-
-        .menu-toggle {
-            display: none;
-            /* Hidden on desktop */
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1001;
-            background-color: var(--panel-bg);
-            border: 2px solid var(--panel-border);
-            border-radius: 8px;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .menu-toggle .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            background-color: var(--panel-border);
-        }
-    </style>
+    <title>IngrediGrade</title>
+    <link rel="stylesheet" href="catstyle.css">
+    <link rel="icon" href="../Image/Web-resource/logo.png">
 </head>
 
 <body>
 
-    <button class="menu-toggle">
-        <span class="bar">
-            <span class="bar"></span>
-            <span class="bar"></span>
-    </button>
-
+  
     <div class="container">
         <aside class="sidebar">
-            <div class="search-bar">
-                <div class="search-icon"></div>
-            </div>
+            <img class="search-bar" src="../Image/Web-resource/logo.png">
+            
 
             <div class="categories-section">
                 <h2>CATEGORIES</h2>
@@ -255,160 +27,186 @@
             </div>
 
             <nav class="main-nav">
-                <a href="https://forms.gle/FBSya9jnND18HXi96" class="nav-link">ADD</a>
-                <a href="#" class="nav-link">REPORT</a>
-                <a href="#" class="nav-link">ABOUT US</a>
+                <a href="https://forms.gle/xBep9GLmKuRFsMPY6" class="nav-link">ADD</a>
+                <a href="https://forms.gle/WgdZp4qE2MRiyH7m9" class="nav-link">REPORT</a>
+                <a href="../about.html" class="nav-link">ABOUT US</a>
             </nav>
         </aside>
 
         <main class="main-content scroll-box" style="overflow-y: auto;">
-            <a href="Frooti.html"><div class="content-card Bev">
-                <div class="card-image-placeholder"><img class="card-image-placeholder"
-                        src="../Image/Beverage/frooti.png"></div>
-                <div class="card-details">
-                    <p><b>Product: </b>Frooti</p>
-                    <p><b>Company: </b>Parle Agro</p>
+            <a href="Frooti.html">
+                <div class="content-card Bev">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Beverage/frooti.png"></div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Frooti</p>
+                        <p><b>Company: </b>Parle Agro</p>
+                    </div>
+                    <div class="card-logo">E</div>
                 </div>
-                <div class="card-logo">G</div>
-            </div></a>
-            <div class="content-card Fd">
-                <div class="card-image-placeholder"><img class="card-image-placeholder" src="../Image/Food/Maggi.png">
+            </a>
+            <a href="./Maggi.html">
+                <div class="content-card Fd">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Food/Maggi.png">
+                    </div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Maggi 2-Minute Noodles</p>
+                        <p><b>Company: </b>Nestlé India Limited</p>
+                    </div>
+                    <div class="card-logo">E</div>
                 </div>
-                <div class="card-details">
-                    <p><b>Product: </b>Maggi 2-Minute Noodles</p>
-                    <p><b>Company: </b>Nestlé India Limited</p>
+            </a>
+            <a href="Nivea.html">
+                <div class="content-card others">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Others/Nivea.png">
+                    </div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Nivea Body Lotion</p>
+                        <p><b>Company: </b>Beiersdorf AG</p>
+                    </div>
+                    <div class="card-logo">C</div>
                 </div>
-                <div class="card-logo">G</div>
-            </div>
-            <div class="content-card others">
-                <div class="card-image-placeholder"><img class="card-image-placeholder" src="../Image/Others/Nivea.png">
+            </a>
+            <a href="./Fanta.html">
+                <div class="content-card Bev">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Beverage/Fanta.png"></div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Fanta </p>
+                        <p><b>Company: </b>The Coca-Cola Company</p>
+                    </div>
+                    <div class="card-logo">F</div>
                 </div>
-                <div class="card-details">
-                    <p><b>Product: </b>Nivea Body Lotion</p>
-                    <p><b>Company: </b>Beiersdorf AG</p>
+            </a>
+            <a href="kurkure.html">
+                <div class="content-card Fd">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Food/Kurkure.png">
+                    </div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Kurkure </p>
+                        <p><b>Company: </b>PepsiCo India</p>
+                    </div>
+                    <div class="card-logo">F</div>
                 </div>
-                <div class="card-logo">G</div>
-            </div>
-            <a href="./Fanta.html">     <div class="content-card Bev">
-                <div class="card-image-placeholder"><img class="card-image-placeholder"
-                        src="../Image/Beverage/Fanta.png"></div>
-                <div class="card-details">
-                    <p><b>Product: </b>Fanta </p>
-                    <p><b>Company: </b>The Coca-Cola Company</p>
+            </a>
+            <a href="Gfw.html">
+                <div class="content-card others">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Others/Garnier.png"></div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Garnier Face Wash </p>
+                        <p><b>Company: </b>L'Oréal </p>
+                    </div>
+                    <div class="card-logo">D</div>
                 </div>
-                <div class="card-logo">G</div>
-            </div></a>
+            </a>
+            <a href="./sting.html">
+                <div class="content-card Bev">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Beverage/Sting.png"></div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Sting Energy Drink </p>
+                        <p><b>Company: </b>PepsiCo International</p>
+                    </div>
+                    <div class="card-logo">F</div>
+                </div>
+            </a>
+            <a href="choco.html">
+                <div class="content-card Fd">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Food/Kell-choco.png"></div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Kellogg’s Chocos </p>
+                        <p><b>Company: </b>Kellogg Company</p>
+                    </div>
+                    <div class="card-logo">D</div>
+                </div>
+            </a>
+            <a href="Gkl.html">
+                <div class="content-card others">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Others/Gknight.png"></div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Good Knight Liquid </p>
+                        <p><b>Company: </b>Godrej Consumer Products Limited </p>
+                    </div>
+                    <div class="card-logo">G</div>
+                </div>
+            </a>
 
-            <div class="content-card Fd">
-                <div class="card-image-placeholder"><img class="card-image-placeholder" src="../Image/Food/Kurkure.png">
+            <a href="./Real.html">
+                <div class="content-card Bev">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Beverage/Real-mix.png"></div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Real Fruit Juice(Mixed) </p>
+                        <p><b>Company: </b>Dabur India Limited(Uttar Pradesh) </p>
+                    </div>
+                    <div class="card-logo">C</div>
                 </div>
-                <div class="card-details">
-                    <p><b>Product: </b>Kurkure </p>
-                    <p><b>Company: </b>PepsiCo India</p>
-                </div>
-                <div class="card-logo">G</div>
-            </div>
+            </a>
+            <a href="ching.html">
 
-            <div class="content-card others">
-                <div class="card-image-placeholder"><img class="card-image-placeholder"
-                        src="../Image/Others/Garnier.png"></div>
-                <div class="card-details">
-                    <p><b>Product: </b>Garnier Face Wash </p>
-                    <p><b>Company: </b>L'Oréal </p>
+                <div class="content-card Fd">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Food/Schezwan.png"></div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Ching’s Schezwan Sauce </p>
+                        <p><b>Company: </b>Capital Foods Private Limited </p>
+                    </div>
+                    <div class="card-logo">E</div>
                 </div>
-                <div class="card-logo">G</div>
-            </div>
+            </a>
+            <a href="Pantene.html">
+                <div class="content-card others">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Others/pantene.png"></div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Pantene Shampoo </p>
+                        <p><b>Company: </b>Procter & Gamble </p>
+                    </div>
+                    <div class="card-logo">D</div>
+                </div>
+            </a>
 
-            <div class="content-card Bev">
-                <div class="card-image-placeholder"><img class="card-image-placeholder"
-                        src="../Image/Beverage/Sting.png"></div>
-                <div class="card-details">
-                    <p><b>Product: </b>Sting Energy Drink </p>
-                    <p><b>Company: </b>PepsiCo International</p>
+            <a href="./Amul.html">
+                <div class="content-card Bev">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Beverage/Amul-Kool.png"></div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Amul Kool </p>
+                        <p><b>Company: </b>Anand Milk Union Limited</p>
+                    </div>
+                    <div class="card-logo">C</div>
                 </div>
-                <div class="card-logo">G</div>
-            </div>
-
-            <div class="content-card Fd">
-                <div class="card-image-placeholder"><img class="card-image-placeholder"
-                        src="../Image/Food/Kell-choco.png"></div>
-                <div class="card-details">
-                    <p><b>Product: </b>Kellogg’s Chocos </p>
-                    <p><b>Company: </b>Kellogg Company</p>
+            </a>
+            <a href="dairy.html">
+                <div class="content-card Fd">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Food/Dairy.png">
+                    </div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Cadbury Dairy Milk</p>
+                        <p><b>Company: </b>Mondelēz International</p>
+                    </div>
+                    <div class="card-logo">F</div>
                 </div>
-                <div class="card-logo">G</div>
-            </div>
-
-            <div class="content-card others">
-                <div class="card-image-placeholder"><img class="card-image-placeholder"
-                        src="../Image/Others/Gknight.png"></div>
-                <div class="card-details">
-                    <p><b>Product: </b>Good Knight Liquid </p>
-                    <p><b>Company: </b>Godrej Consumer Products Limited </p>
+            </a>
+            <a href="hd&sh.html">
+                <div class="content-card others">
+                    <div class="card-image-placeholder"><img class="card-image-placeholder"
+                            src="../Image/Others/hd&sh.png">
+                    </div>
+                    <div class="card-details">
+                        <p><b>Product: </b>Head & Shoulders Shampoo </p>
+                        <p><b>Company: </b>Procter & Gamble</p>
+                    </div>
+                    <div class="card-logo">D</div>
                 </div>
-                <div class="card-logo">G</div>
-            </div>
-
-            <div class="content-card Bev">
-                <div class="card-image-placeholder"><img class="card-image-placeholder"
-                        src="../Image/Beverage/Real-mix.png"></div>
-                <div class="card-details">
-                    <p><b>Product: </b>Real Fruit Juice(Mixed) </p>
-                    <p><b>Company: </b>Dabur India Limited(Uttar Pradesh) </p>
-                </div>
-                <div class="card-logo">G</div>
-            </div>
-
-            <div class="content-card Fd">
-                <div class="card-image-placeholder"><img class="card-image-placeholder"
-                        src="../Image/Food/Schezwan.png"></div>
-                <div class="card-details">
-                    <p><b>Product: </b>Ching’s Schezwan Sauce </p>
-                    <p><b>Company: </b>Capital Foods Private Limited </p>
-                </div>
-                <div class="card-logo">G</div>
-            </div>
-
-            <div class="content-card others">
-                <div class="card-image-placeholder"><img class="card-image-placeholder"
-                        src="../Image/Others/pantene.png"></div>
-                <div class="card-details">
-                    <p><b>Product: </b>Pantene Shampoo </p>
-                    <p><b>Company: </b>Procter & Gamble </p>
-                </div>
-                <div class="card-logo">G</div>
-            </div>
-
-            <div class="content-card Bev">
-                <div class="card-image-placeholder"><img class="card-image-placeholder"
-                        src="../Image/Beverage/Amul-Kool.png"></div>
-                <div class="card-details">
-                    <p><b>Product: </b>Amul Kool </p>
-                    <p><b>Company: </b>Anand Milk Union Limited</p>
-                </div>
-                <div class="card-logo">G</div>
-            </div>
-
-            <div class="content-card Fd">
-                <div class="card-image-placeholder"><img class="card-image-placeholder" src="../Image/Food/Dairy.png">
-                </div>
-                <div class="card-details">
-                    <p><b>Product: </b>Cadbury Dairy Milk</p>
-                    <p><b>Company: </b>Mondelēz International</p>
-                </div>
-                <div class="card-logo">G</div>
-            </div>
-
-            <div class="content-card others">
-                <div class="card-image-placeholder"><img class="card-image-placeholder" src="../Image/Others/hd&sh.png">
-                </div>
-                <div class="card-details">
-                    <p><b>Product: </b>Head & Shoulders Shampoo </p>
-                    <p><b>Company: </b>Procter & Gamble</p>
-                </div>
-                <div class="card-logo">G</div>
-            </div>
-
+            </a>
 
         </main>
     </div>

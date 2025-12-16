@@ -16,7 +16,14 @@
             margin-bottom: 6px;
             line-height: 1.4;
         }
-
+       .lg {
+            display: flex;
+            align-items: center;
+            background-color: var(--search-bar-bg);
+            border-radius: 25px;
+            padding: 5px;
+            height: 85px;
+        }
 
         html,
         body {
@@ -145,7 +152,7 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            overflow-y: auto;
+            overflow-y:scroll;
         }
 
         .ingredients-header {
@@ -153,7 +160,8 @@
             padding: 15px 20px;
             border-radius: 10px;
             margin-bottom: 15px;
-            overflow-y: auto;
+            height: 200px;
+            overflow-y: scroll;
         }
 
         .ingredients-title {
@@ -180,7 +188,8 @@
             background-color: #c8d4c8;
             border-radius: 10px;
             padding: 15px;
-            overflow-y: auto;
+            height: 250px;
+            overflow-y: scroll;
         }
 
         .ingredient-title {
@@ -199,8 +208,8 @@
             background-color: #c8d4c8;
             border-radius: 10px;
             padding: 15px;
-            min-height: 100px;
-            overflow-y: auto;
+            height: 125px;
+            overflow-y: scroll;
         }
 
         @media (max-width: 768px) {
